@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Todo App 🚀</title>
+    <link
+      rel="shortcut icon"
+      href="https://v2.vuejs.org/images/icons/favicon-32x32.png"
+      type="image/png"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex justify-center min-h-full bg-gray-600 text-white">
+    <div id="root">
+      <h1 class="mt-5 text-4xl font-bold mb-4 text-center">
+        Vue <span class="text-orange-400">Todo</span> App 🚀
+      </h1>
+      <div class="flex max-h-[50px] my-9 min-w-[400px]">
+        <input
+          class="flex-1 text-black p-3 rounded-md rounded-tr-none rounded-br-none shadow-xl outline-none border-2 border-r-0 focus:border-orange-400"
+          type="text"
+          placeholder="Add new todo 📝"
+          v-model="newTodo"
+          v-on:keyup.enter="addTodo"
+        />
+        <button
+          v-bind:disabled="!newTodo"
+          v-on:click="addTodo"
+          :class="{['cursor-not-allowed']: !newTodo}"
+          class="bg-orange-400 rounded-tr-md rounded-br-md px-5"
+        >
+          ➕
+        </button>
+      </div>
+
+      <ul class="min-h-[96px]">
+        <todo-item v-for="item in todos" :item="item"></todo-item>
+      </ul>
+
+      <div
+        class="flex flex-col bg-white text-black mt-9 p-4 rounded-md shadow-lg"
+        v-if="completedTodos.length"
+      >
+        <div class="mb-2 text-center text-lg">Completed 🥳🎉</div>
+        <hr />
+        <ul class="mt-4">
+          <todo-item-completed v-for="item in completedTodos" :item="item"></todo-item-completed>
+        </ul>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
