@@ -29,3 +29,4 @@ https://splendid-pastelito-48cdd4.netlify.app/
 ### 6. Resources for future learning
 - https://v2.vuejs.org/
 - https://youtu.be/bzlFvd0b65c
+- https://youtu.be/OrxmtDw4pVI
